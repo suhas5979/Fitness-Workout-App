@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Workout App</string>
+    <string name="image">image</string>
+    <string name="str_start">Start</string>
+    <string name="tv_exercise_name">Exercise 1</string>
+    <string name="get_ready_for">GET READY FOR</string>
+</resources>

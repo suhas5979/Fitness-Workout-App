@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/color_white"
+    tools:context=".ExerciseActivity">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/exercise_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="@color/colorAccent"
+        android:theme="@style/ToolbarTheme"/>
+    <LinearLayout
+    android:id="@+id/llRestView"
+    android:layout_width="match_parent"
+    android:visibility="visible"
+    android:gravity="center"
+    android:layout_below="@id/exercise_toolbar"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/get_ready_for"
+        android:textColor="@color/colorAccent"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+
+    <FrameLayout
+        android:layout_width="@dimen/timer_view_outer_height"
+        android:layout_height="@dimen/timer_view_outer_height"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/item_circular_color_accent_background">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="@dimen/timer_view_progress_bar_size"
+            android:layout_height="@dimen/timer_view_progress_bar_size"
+            android:layout_gravity="center"
+            android:background="@drawable/circular_progress_grey"
+            android:indeterminate="false"
+            android:max="10"
+            android:progress="100"
+            android:progressDrawable="@drawable/circular_progress_bar"
+            android:rotation="-90" />
+
+        <LinearLayout
+            android:layout_width="@dimen/timer_view_inner_height"
+            android:layout_height="@dimen/timer_view_inner_height"
+            android:layout_gravity="center"
+            android:background="@drawable/item_circular_color_accent_background"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tvTimer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorAccent"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                tools:text="10" />
+        </LinearLayout>
+    </FrameLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#2e2e2e"
+            android:textSize="20sp"
+            android:text="Upcoming Exercise"/>
+        <TextView
+            android:id="@+id/tvUpComingExerciseName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorAccent"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            tools:text="Exercise Name" />
+
+</LinearLayout>
+    <LinearLayout
+        android:id="@+id/llExerciseView"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:gravity="center"
+        android:layout_below="@id/exercise_toolbar"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:scaleType="fitStart"
+            android:maxHeight="100dp"
+            android:layout_weight="1"
+            android:id="@+id/ivImage"
+            android:contentDescription="@string/image"
+            android:src="@drawable/ic_knee_sit_up"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_exercise_name"
+            android:id="@+id/tvExerciseName"
+            android:textColor="@color/colorAccent"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <FrameLayout
+            android:layout_width="@dimen/timer_view_outer_height"
+            android:layout_height="@dimen/timer_view_outer_height"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/item_circular_color_accent_background">
+
+            <ProgressBar
+                android:id="@+id/progressBarExercise"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="@dimen/timer_view_progress_bar_size"
+                android:layout_height="@dimen/timer_view_progress_bar_size"
+                android:layout_gravity="center"
+                android:background="@drawable/circular_progress_grey"
+                android:indeterminate="false"
+                android:max="30"
+                android:progress="100"
+                android:progressDrawable="@drawable/circular_progress_bar"
+                android:rotation="-90" />
+
+            <LinearLayout
+                android:layout_width="@dimen/timer_view_inner_height"
+                android:layout_height="@dimen/timer_view_inner_height"
+                android:layout_gravity="center"
+                android:background="@drawable/item_circular_color_accent_background"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/tvExerciseTimer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    tools:text="10" />
+            </LinearLayout>
+        </FrameLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
