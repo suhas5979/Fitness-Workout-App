@@ -7,11 +7,17 @@ class Constants {
 
             val jumpingJacks =ExerciseModel(1, "knee sit ups",R.drawable.ic_knee_sit_up,false,false)
             exerciseList.add(jumpingJacks)
-            val abdominalCrunch =ExerciseModel(2, "sit ups",R.drawable.ic_sit_ups,false,false)
+            val abdominalCrunch =ExerciseModel(2, "sit ups",R.drawable.ic_sit_ups,
+                isCompleted = false,
+                isSelected = false
+            )
             exerciseList.add(abdominalCrunch)
             val highKneesRun =ExerciseModel(3, "high knee running",R.drawable.ic_knee_running,false,false)
             exerciseList.add(highKneesRun)
-            val lunge =ExerciseModel(4, "lunge",R.drawable.ic_lunges,false,false)
+            val lunge =ExerciseModel(4, "lunge",R.drawable.ic_lunges,
+                isCompleted = false,
+                isSelected = false
+            )
             exerciseList.add(lunge)
             val plank =ExerciseModel(5, "Planks",R.drawable.ic_plank,false,false)
             exerciseList.add(plank)

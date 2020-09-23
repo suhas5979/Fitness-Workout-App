@@ -6,6 +6,7 @@ import android.os.CountDownTimer
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_exercise.*
 import kotlin.collections.ArrayList
 
@@ -14,10 +15,11 @@ class ExerciseActivity : AppCompatActivity() {
     private var restProgress = 0
     private var exerciseTimer : CountDownTimer?=null
     private var exerciseProgress = 0
-    private val exerciseTimeToComlete= 30
-    private val restTimeForNextExercise=10
+    private val exerciseTimeToComlete= 3
+    private val restTimeForNextExercise=3
     private var exerciseList:ArrayList<ExerciseModel>?=null
     private var currentExercisePosition =-1
+    private var exerciseAdapter :ExerciseStatusAdapter?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +34,7 @@ class ExerciseActivity : AppCompatActivity() {
         }
         exerciseList = Constants.defaultExerciseList()
         setupRestView()
+        setupExerciseStatusRecyclerView()
     }
 
     override fun onDestroy() {
@@ -50,6 +53,8 @@ class ExerciseActivity : AppCompatActivity() {
         restTimer = object :CountDownTimer((restTimeForNextExercise*1000+1000).toLong(),1000){
             override fun onFinish() {
                 currentExercisePosition++
+                exerciseList!![currentExercisePosition].setIsSelected(true)
+                exerciseAdapter!!.notifyDataSetChanged()
 
                 setupExerciseView()
             }
@@ -68,6 +73,8 @@ class ExerciseActivity : AppCompatActivity() {
             override fun onFinish() {
                 progressBarExercise.progress= exerciseProgress
             if(currentExercisePosition<exerciseList?.size!!-1){
+                exerciseList!![currentExercisePosition].setIsSelected(false)
+                exerciseList!![currentExercisePosition].setIsCompleted(true)
                 setupRestView()
             }else{
                 Toast.makeText(this@ExerciseActivity,
@@ -107,6 +114,13 @@ class ExerciseActivity : AppCompatActivity() {
         ivImage.setImageResource(exerciseList!![currentExercisePosition].getImage())
         tvExerciseName.text= exerciseList!![currentExercisePosition].getName()
     }
+    private fun setupExerciseStatusRecyclerView(){
+        rvExerciseStatus.layoutManager = LinearLayoutManager(this,
+            LinearLayoutManager.HORIZONTAL,
+            false)
+        exerciseAdapter= ExerciseStatusAdapter(exerciseList!!,this)
+        rvExerciseStatus.adapter =exerciseAdapter
 
+    }
 
 }

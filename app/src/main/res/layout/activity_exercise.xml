@@ -86,16 +86,16 @@
         android:layout_width="match_parent"
         android:visibility="gone"
         android:gravity="center"
+        android:layout_above="@id/rvExerciseStatus"
         android:layout_below="@id/exercise_toolbar"
         android:orientation="vertical"
         android:layout_height="match_parent">
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="200dp"
 
-            android:scaleType="fitStart"
+            android:scaleType="fitCenter"
             android:maxHeight="100dp"
-            android:layout_weight="1"
             android:id="@+id/ivImage"
             android:contentDescription="@string/image"
             android:src="@drawable/ic_knee_sit_up"
@@ -147,5 +147,13 @@
         </FrameLayout>
 
     </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvExerciseStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginVertical="10dp"/>
 
 </RelativeLayout>

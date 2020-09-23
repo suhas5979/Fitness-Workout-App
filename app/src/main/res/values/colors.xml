@@ -7,4 +7,6 @@
     <color name="material_blue">#03A9F4</color>
     <color name="color_highlighted">#C6C6C6</color>
     <color name="color_white">#FFFFFF</color>
+    <color name="material_green">#4CAF50</color>
+    <color name="material_pink">#F50057</color>
 </resources>
